@@ -11,6 +11,15 @@
   </head>
 
   <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= image_tag "https://aqua.sfc.wide.ad.jp/quisp_website/img/AQUA_logo_black.png", width: 300 %>
+    <% if user_signed_in? %>
+  <%= link_to "timeline", root_path%>
+  <%= link_to "account settings", edit_user_registration_path %>
+  <%= link_to "sign out", destroy_user_session_path%>
+    <% end %>
     <%= yield %>
   </body>
 </html>

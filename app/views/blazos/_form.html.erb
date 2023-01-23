@@ -1,0 +1,26 @@
+<%= form_with(model: blazo) do |form| %>
+  <% if blazo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(blazo.errors.count, "error") %> prohibited this blazo from being saved:</h2>
+
+      <ul>
+        <% blazo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :abstract, style: "display: block" %>
+    <%= form.text_area :abstract %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

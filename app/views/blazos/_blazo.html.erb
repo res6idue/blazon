@@ -1,0 +1,11 @@
+<div id="<%= dom_id blazo %>">
+  <p>
+    <strong>User:</strong>
+    <%= User.find(blazo.user_id).name %>
+  </p>
+
+  <p>
+    <strong>Abstract:</strong>
+    <%= blazo.abstract %>
+  </p>
+</div>

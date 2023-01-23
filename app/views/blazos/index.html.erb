@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Timeline</h1>
+
+<div id="blazos">
+  <% @blazos.each do |blazo| %>
+    <%= render blazo %>
+    <p>
+      <%= link_to "Read details", blazo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New blazo", new_blazo_path %>

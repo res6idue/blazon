@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @blazo %>
+<p>
+  <strong>Content:</strong>
+  <%= @blazo.content %>
+</p>
+
+
+<div>
+  <%= link_to "Edit this blazo", edit_blazo_path(@blazo) %> |
+  <%= link_to "Back to blazos", blazos_path %>
+
+  <%= button_to "Destroy this blazo", @blazo, method: :delete %>
+</div>
