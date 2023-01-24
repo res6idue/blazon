@@ -1,0 +1,6 @@
+<h1><%= @user.name %></h1>
+<% if current_user == @user%>
+<%= render "form", user: @user %>
+<% else %>
+<%= render @user %>
+<% end %>

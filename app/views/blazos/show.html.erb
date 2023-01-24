@@ -1,6 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @blazo %>
+<% if @liked%>
+<%= link_to "Dislike", blazo_like_path(@blazo), method: :post %>
+<% else %>
+<%= link_to "Like", blazo_like_path(@blazo), method: :post %>
+<% end %>
 <p>
   <strong>Content:</strong>
   <%= @blazo.content %>

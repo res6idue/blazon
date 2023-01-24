@@ -8,6 +8,7 @@ class BlazosController < ApplicationController
 
   # GET /blazos/1 or /blazos/1.json
   def show
+    @liked = !Like.where(blazo: @blazo, user: current_user).empty?
   end
 
   # GET /blazos/new
@@ -57,6 +58,17 @@ class BlazosController < ApplicationController
       format.html { redirect_to blazos_url, notice: "Blazo was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @blazo = Blazo.find(params[:id])
+    @like = Like.where(blazo: @blazo, user: current_user)
+    if !@like.empty?
+      Like.destroy(@like[0].id)
+    else
+      Like.create(blazo: @blazo, user: current_user)
+    end  
+    redirect_back(fallback_location: root_path)
   end
 
   private

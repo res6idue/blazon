@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users or /users.json
@@ -57,12 +57,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @user = User.find(params[:id])
+    @following = Follow.where(user_id: @user.id, follwer_id: current_user.id)
+    if !@following.empty?
+      Follow.destroy(@following[0].id)
+    else
+      Follow.create(user_id: @user.id, follwer_id: current_user.id)
+    end  
+    redirect_back(fallback_location: root_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
-
+    
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :bio)

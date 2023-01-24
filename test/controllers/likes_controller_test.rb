@@ -7,7 +7,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    get likes_create_url
+    get blazo_like_url
     assert_response :success
   end
 

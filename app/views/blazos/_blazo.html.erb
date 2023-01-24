@@ -2,7 +2,7 @@
   <p>
     <strong>User:</strong>
     <!--今村翔太君に教えてもらいました-->
-    <%= link_to blazo.user.name, users_update_path(blazo.user) %>
+    <%= link_to blazo.user.name, users_edit_path(blazo.user) %>
     <!--ここまで-->
   </p>
 
@@ -11,9 +11,8 @@
     <%= blazo.abstract %>
   </p>
   <p>
-    <!--今村翔太君に教えてもらいました-->
+  <div>
     <strong>Likes: <%= blazo.likes.length %></strong>
-    <%= link_to "Press this to like", likes_create_path(blazo), method: :post %>
-    <!--ここまで-->
+  </div>
   </p>
 </div>

@@ -8,19 +8,23 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script type="module">
+      import hotwiredTurbo from "https://cdn.skypack.dev/@hotwired/turbo";
+    </script>
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
   <%= image_tag "https://3.bp.blogspot.com/-11Y99qavGno/ViipECPkPaI/AAAAAAAAzuw/0xx_rzRrtaY/s500/pop_kihon_muryou.png", width: 300 %>
-    <% if user_signed_in? %>
+  
+  <p class="notice", style="color: green"><%= notice %></p>
+  <p class="alert", style="color: red"><%= alert %></p>
+
+  <% if user_signed_in? %>
   <%= link_to "timeline", root_path%>
-  <%= link_to "profile", users_update_path(current_user.id) %>
-  <%= link_to "account settings", edit_user_registration_path %>
+  <%= link_to "profile", users_edit_path(current_user) %>
+  <%= link_to "account", edit_user_registration_path %>
   <%= link_to "sign out", destroy_user_session_path%>
-    <% end %>
-    <%= yield %>
+  <% end %>
+  <%= yield %>
   </body>
 </html>
