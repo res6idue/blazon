@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  get 'relationship/show'
-  get 'relationship/create'
-  get 'relationship/delete'
-  get 'likes/show'
+  get 'relationship/create', to: 'relationship#create', as: 'relationship_create'
+  get 'users/:id', to: 'users#update', as: 'users_update'
+  get 'likes/show', to: 'likes#show', as: 'likes_show'
   get 'likes/create/:id', to: 'likes#create', as: 'likes_create'
-  get 'likes/delete'
   devise_for :users
   resources :blazos
-  resources :users, only: [:show, :update, :destroy]
+  resources :users, only: [:update, :destroy]
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

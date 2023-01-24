@@ -17,7 +17,7 @@
   <%= image_tag "https://3.bp.blogspot.com/-11Y99qavGno/ViipECPkPaI/AAAAAAAAzuw/0xx_rzRrtaY/s500/pop_kihon_muryou.png", width: 300 %>
     <% if user_signed_in? %>
   <%= link_to "timeline", root_path%>
-  <%= link_to "profile", root_path%>
+  <%= link_to "profile", users_update_path(current_user.id) %>
   <%= link_to "account settings", edit_user_registration_path %>
   <%= link_to "sign out", destroy_user_session_path%>
     <% end %>

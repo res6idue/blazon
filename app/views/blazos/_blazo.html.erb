@@ -1,8 +1,9 @@
 <div id="<%= dom_id blazo %>">
   <p>
     <strong>User:</strong>
-    <!--今村君に教えてもらいました-->
-    <%= link_to blazo.user.name, user_path(blazo.user) %>
+    <!--今村翔太君に教えてもらいました-->
+    <%= link_to blazo.user.name, users_update_path(blazo.user) %>
+    <!--ここまで-->
   </p>
 
   <p>
@@ -10,7 +11,9 @@
     <%= blazo.abstract %>
   </p>
   <p>
-    <strong>Likes: #likes</strong>
+    <!--今村翔太君に教えてもらいました-->
+    <strong>Likes: <%= blazo.likes.length %></strong>
     <%= link_to "Press this to like", likes_create_path(blazo), method: :post %>
+    <!--ここまで-->
   </p>
 </div>
