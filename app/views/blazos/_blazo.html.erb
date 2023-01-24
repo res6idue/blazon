@@ -1,11 +1,16 @@
 <div id="<%= dom_id blazo %>">
   <p>
     <strong>User:</strong>
-    <%= User.find(blazo.user_id).name %>
+    <!--今村君に教えてもらいました-->
+    <%= link_to blazo.user.name, user_path(blazo.user) %>
   </p>
 
   <p>
     <strong>Abstract:</strong>
     <%= blazo.abstract %>
+  </p>
+  <p>
+    <strong>Likes: #likes</strong>
+    <%= link_to "Press this to like", likes_create_path(blazo), method: :post %>
   </p>
 </div>

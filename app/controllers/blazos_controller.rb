@@ -3,7 +3,7 @@ class BlazosController < ApplicationController
 
   # GET /blazos or /blazos.json
   def index
-    @blazos = Blazo.all.order(created_at: :asc)
+    @blazos = Blazo.all.order(created_at: :desc)
   end
 
   # GET /blazos/1 or /blazos/1.json

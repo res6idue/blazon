@@ -14,9 +14,10 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <%= image_tag "https://aqua.sfc.wide.ad.jp/quisp_website/img/AQUA_logo_black.png", width: 300 %>
+  <%= image_tag "https://3.bp.blogspot.com/-11Y99qavGno/ViipECPkPaI/AAAAAAAAzuw/0xx_rzRrtaY/s500/pop_kihon_muryou.png", width: 300 %>
     <% if user_signed_in? %>
   <%= link_to "timeline", root_path%>
+  <%= link_to "profile", root_path%>
   <%= link_to "account settings", edit_user_registration_path %>
   <%= link_to "sign out", destroy_user_session_path%>
     <% end %>

@@ -8,8 +8,8 @@
 
 
 <div>
-  <%= link_to "Edit this blazo", edit_blazo_path(@blazo) %> |
-  <%= link_to "Back to blazos", blazos_path %>
-
-  <%= button_to "Destroy this blazo", @blazo, method: :delete %>
+  <% if current_user.id == @blazo.user_id%>
+  <%= link_to "Edit this blazo", edit_blazo_path(@blazo) %>
+  <%= button_to "Destroy this blazo", @blazo, method: :delete %> 
+  <% end %>
 </div>
