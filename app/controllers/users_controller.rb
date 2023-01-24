@@ -3,7 +3,12 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
+    @users.each do |user|
+      user.following = !Relationship.where(user_id: user.id, follower_id: current_user.id).empty?
+      user.followers = Relationship.where(user_id: user.id).length
+      user.followings = Relationship.where(follower_id: user.id).length
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -17,6 +22,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @user.following = !Relationship.where(user_id: @user.id, follower_id: current_user.id).empty?
+    @user.followers = Relationship.where(user_id: @user.id).length
+    @user.followings = Relationship.where(follower_id: @user.id).length
+    @user.blazos = Blazo.where(user: @user).order(created_at: :desc)
   end
 
   # POST /users or /users.json
@@ -59,12 +68,12 @@ class UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
-    @following = Follow.where(user_id: @user.id, follwer_id: current_user.id)
+    @following = Relationship.where(user_id: @user.id, follower_id: current_user.id)
     if !@following.empty?
-      Follow.destroy(@following[0].id)
+      Relationship.destroy(@following[0].id)
     else
-      Follow.create(user_id: @user.id, follwer_id: current_user.id)
-    end  
+      Relationship.create(user_id: @user.id, follower_id: current_user.id)
+    end
     redirect_back(fallback_location: root_path)
   end
 

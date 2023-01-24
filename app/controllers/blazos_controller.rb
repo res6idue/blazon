@@ -3,7 +3,13 @@ class BlazosController < ApplicationController
 
   # GET /blazos or /blazos.json
   def index
-    @blazos = Blazo.all.order(created_at: :desc)
+    relationships = Relationship.where(follower_id: current_user.id)
+    following_users = []
+    for relationship in relationships
+      following_users.append(relationship.user_id)
+    end
+    following_users.append(current_user.id)
+    @blazos = Blazo.where(user: User.find(following_users)).order(created_at: :desc)
   end
 
   # GET /blazos/1 or /blazos/1.json

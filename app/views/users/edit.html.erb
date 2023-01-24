@@ -1,6 +1,17 @@
 <h1><%= @user.name %></h1>
-<% if current_user == @user%>
-<%= render "form", user: @user %>
-<% else %>
 <%= render @user %>
+<% if current_user == @user%>
+<br>
+<strong>Edit user profile from here</strong>
+<%= render "form", user: @user %>
+<br>
 <% end %>
+<div id="blazos">
+  <% @user.blazos.each do |blazo| %>
+    <%= render blazo %>
+    <p>
+      <%= link_to "Read details", blazo %>
+    </p>
+    <br>
+<% end %>
+</div>

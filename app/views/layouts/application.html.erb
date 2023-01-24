@@ -8,23 +8,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <script type="module">
-      import hotwiredTurbo from "https://cdn.skypack.dev/@hotwired/turbo";
-    </script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-  <%= image_tag "https://3.bp.blogspot.com/-11Y99qavGno/ViipECPkPaI/AAAAAAAAzuw/0xx_rzRrtaY/s500/pop_kihon_muryou.png", width: 300 %>
-  
+  <div id="header">
+  <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Old_Keio_University_Library_3.jpg/480px-Old_Keio_University_Library_3.jpg", width: 300 %>
+  <% if user_signed_in? %>
+  <%= link_to "timeline", root_path%>
+  <%= link_to "recomended users", users_index_path%>
+  <%= link_to "profile", users_edit_path(current_user) %>
+  <%= link_to "account settings", edit_user_registration_path %>
+  <%= link_to "sign out", destroy_user_session_path%>
+  <% end %>
+  </div>
   <p class="notice", style="color: green"><%= notice %></p>
   <p class="alert", style="color: red"><%= alert %></p>
 
-  <% if user_signed_in? %>
-  <%= link_to "timeline", root_path%>
-  <%= link_to "profile", users_edit_path(current_user) %>
-  <%= link_to "account", edit_user_registration_path %>
-  <%= link_to "sign out", destroy_user_session_path%>
-  <% end %>
   <%= yield %>
+  <br><%= image_tag "http://www.sfc.keio.ac.jp/img/logo.png", width: 300 %>
   </body>
 </html>
