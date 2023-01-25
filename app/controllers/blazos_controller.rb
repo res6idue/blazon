@@ -58,6 +58,11 @@ class BlazosController < ApplicationController
 
   # DELETE /blazos/1 or /blazos/1.json
   def destroy
+    likes = Like.where(blazo: @blazo)
+    for like in likes
+      like.destroy
+    end
+    
     @blazo.destroy
 
     respond_to do |format|
