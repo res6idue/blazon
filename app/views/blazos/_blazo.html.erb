@@ -1,9 +1,13 @@
 <div id="<%= dom_id blazo %>">
   <p>
-    <strong>User:</strong>
-    <!--今村翔太君に教えてもらいました-->
+    <!--https://web.sfc.keio.ac.jp/~hattori/script-lang/image.html#active-storageを参考にした-->
+    <% if blazo.user.profile_pic.attached? %>
+      <%= image_tag url_for(blazo.user.profile_pic), height: 50 %>
+    <% else %>
+      No Image
+    <% end %>
+    <!--今村君に教えてもらいました-->
     <%= link_to blazo.user.name, users_edit_path(blazo.user) %>
-    <!--ここまで-->
   </p>
 
   <p>

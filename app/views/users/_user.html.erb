@@ -12,6 +12,15 @@
 <%= link_to "Follow", user_follow_path(user), method: :post %>
 <% end %>
 <%end%>
+<!--https://web.sfc.keio.ac.jp/~hattori/script-lang/image.html#active-storageを参考にした-->
+  <p>
+  <strong>Icon:</strong>
+  <% if user.profile_pic.attached? %>
+    <%= image_tag url_for(user.profile_pic), height: 100 %>
+  <% else %>
+    No Image
+  <% end %>
+</p>
   <p>
     <strong>Name:</strong>
     <%= user.name %>
@@ -21,5 +30,7 @@
     <strong>Bio:</strong>
     <%= user.bio %>
   </p>
+
+  
   
 </div>

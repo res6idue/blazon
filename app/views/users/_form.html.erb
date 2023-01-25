@@ -19,6 +19,13 @@
     <%= form.text_area :bio %>
   </div>
 
+  <!--https://web.sfc.keio.ac.jp/~hattori/script-lang/image.html#active-storageを参考にした-->
+  <div>
+    <%= form.label :profile_pic %>
+    <%= form.file_field :profile_pic %>
+</div>
+
+
   <div>
     <%= form.submit "Update profile" %>
   </div>

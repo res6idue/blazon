@@ -50,6 +50,11 @@ gem "bootsnap", require: false
 
 gem "devise"
 
+# https://autovice.jp/articles/40を参考にしている
+gem 'redcarpet'
+gem 'rouge'
+
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
