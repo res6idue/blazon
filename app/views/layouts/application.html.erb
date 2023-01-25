@@ -15,6 +15,7 @@
   <div class="header">
   <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Old_Keio_University_Library_3.jpg/480px-Old_Keio_University_Library_3.jpg", width: 300 %>
   <% if user_signed_in? %>
+  <%= link_to "new blazo", new_blazo_path %>
   <%= link_to "timeline", root_path%>
   <%= link_to "recomended users", users_index_path%>
   <%= link_to "profile", users_edit_path(current_user) %>
@@ -24,7 +25,6 @@
   </div>
   <p class="notice", style="color: green"><%= notice %></p>
   <p class="alert", style="color: red"><%= alert %></p>
-<%= link_to "New blazo", new_blazo_path %>
   <%= yield %>
   </body>
 </html>
