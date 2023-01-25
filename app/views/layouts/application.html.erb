@@ -8,12 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
   <div class="header">
-  <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Old_Keio_University_Library_3.jpg/480px-Old_Keio_University_Library_3.jpg", width: 300 %>
+  <!--https://free-materials.com/%e3%83%ad%e3%82%b404/ より取得-->
+  <%= image_tag "https://free-materials.com/adm/wp-content/uploads/2020/10/logo_04.png", width: 150 %>
   <% if user_signed_in? %>
   <%= link_to "new blazo", new_blazo_path %>
   <%= link_to "timeline", root_path%>
