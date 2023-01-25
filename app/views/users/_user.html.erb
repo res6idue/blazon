@@ -12,20 +12,15 @@
 <%= link_to "Follow", user_follow_path(user), method: :post %>
 <% end %>
 <%end%>
-<!--https://web.sfc.keio.ac.jp/~hattori/script-lang/image.html#active-storageを参考にした-->
-  <p>
-  <strong>Icon:</strong>
-  <% if user.profile_pic.attached? %>
-    <%= image_tag url_for(user.profile_pic), height: 100 %>
-  <% else %>
-    No Image
-  <% end %>
-</p>
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
+<p>
+    <!--https://web.sfc.keio.ac.jp/~hattori/script-lang/image.html#active-storageを参考にした-->
+    <% if user.profile_pic.attached? %>
+      <%= image_tag url_for(user.profile_pic), height: 50 %>
+    <% else %>
+      No Image
+    <% end %>
+    <%= link_to user.name, users_edit_path(user) %>
   </p>
-
   <p>
     <strong>Bio:</strong>
     <%= user.bio %>
