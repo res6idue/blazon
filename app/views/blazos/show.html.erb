@@ -5,8 +5,7 @@
 <%= link_to "Like", blazo_like_path(@blazo), method: :post %>
 <% end %>
 <p>
-  <strong>Content:</strong>
-  <%= @blazo.content %>
+  <%= markdown(@blazo.content) %>
 </p>
 
 
